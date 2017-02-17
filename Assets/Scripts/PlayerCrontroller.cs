@@ -4,9 +4,18 @@ using System.Collections;
 public class PlayerCrontroller : MonoBehaviour {
 
 	private Vector3 position;
+	public Animator anim;
+
+	[Header("Animation")]
+	public bool isDead = false;
+
+	void Start() {
+		anim = GetComponent<Animator> ();
+	}
 
 	void Update ()
 	{
+		Debug.Log ("isDead => " + isDead);
 		if (Input.GetKeyDown(KeyCode.UpArrow))
 		{
 			Vector3 position = this.transform.position;
@@ -26,10 +35,18 @@ public class PlayerCrontroller : MonoBehaviour {
 				this.transform.position = position;				
 			}
 		}
+
+		UpdateAnimatorParameters ();
 	}
 
-    public void OnTriggerEnter(Collider collider) {
-    	 Debug.Log("OnTriggerEnter ===>");
-    }
+	void UpdateAnimatorParameters() {
+		anim.SetBool("isDead", isDead);
+	}
+
+	void OnTriggerEnter(Collider other) {
+		if (other.gameObject.tag == "Shuriken") {
+			isDead = true;
+		}
+	}
 
 }

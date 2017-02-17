@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class EnemyScene : MonoBehaviour {
@@ -22,6 +23,8 @@ public class EnemyScene : MonoBehaviour {
 		Vector2 min = Camera.main.ViewportToWorldPoint (new Vector2 (0, 0));
 
 		if (transform.position.x < min.x) {
+			Manager.score++;
+			Debug.Log("Score: " + Manager.score);
 			Destroy (gameObject);
 		}
 	}

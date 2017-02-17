@@ -28,4 +28,8 @@ public class PlayerCrontroller : MonoBehaviour {
 		}
 	}
 
+    public void OnTriggerEnter(Collider collider) {
+    	 Debug.Log("OnTriggerEnter ===>");
+    }
+
 }

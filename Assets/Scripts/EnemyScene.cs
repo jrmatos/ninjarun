@@ -6,7 +6,7 @@ public class EnemyScene : MonoBehaviour {
 	float speed;
 
 	void Start() {
-		speed = 4f;
+		speed = 15f;
 	}
 
 	void Update() {

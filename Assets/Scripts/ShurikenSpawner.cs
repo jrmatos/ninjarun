@@ -8,10 +8,10 @@ public class ShurikenSpawner : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Invoke ("SpawnEnemy", maxSpawnRateInSeconds);
+		Invoke ("SpawnEnemy", 1);
 
 		//Increase spawn rate every 30 seconds
-		InvokeRepeating("IncreaseSpawnRate",0f,30f);
+		InvokeRepeating("IncreaseSpawnRate",0f, 5f);
 	}
 	
 	// Update is called once per frame
@@ -33,11 +33,11 @@ public class ShurikenSpawner : MonoBehaviour {
 	void ScheduleNextEnemy() {
 		float spawnInNSeconds;
 
-		if (maxSpawnRateInSeconds > 1f) {
+		if (maxSpawnRateInSeconds > 0.5f) {
 			//pik a number between 1 and maxSpawnRateInSeconds
-			spawnInNSeconds = Random.Range (1f, maxSpawnRateInSeconds);
+			spawnInNSeconds = Random.Range (0.5f, maxSpawnRateInSeconds);
 		} else {
-			spawnInNSeconds = 1f;
+			spawnInNSeconds = 0.5f;
 		}
 
 		Invoke ("SpawnEnemy", spawnInNSeconds);
@@ -45,9 +45,9 @@ public class ShurikenSpawner : MonoBehaviour {
 
 	//Function to increase the dificulty of the game
 	void IncreaseSpawnRate() {
-		if (maxSpawnRateInSeconds > 1f)
+		if (maxSpawnRateInSeconds > 0.5f)
 			maxSpawnRateInSeconds--;
-		if (maxSpawnRateInSeconds == 1f)
+		if (maxSpawnRateInSeconds == 0.5f)
 			CancelInvoke ("IncreaseSpawnRate");
 	}
 }

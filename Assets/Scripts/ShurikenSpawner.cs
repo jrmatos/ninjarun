@@ -26,7 +26,9 @@ public class ShurikenSpawner : MonoBehaviour {
 		anEnemy.transform.position = new Vector2 (10,Random.Range (-4,-2));
 
 		//Schedule when to spawn next enemy
-		ScheduleNextEnemy();
+		if(!PlayerCrontroller.isDead) {
+			ScheduleNextEnemy();	
+		}
 
 	}
 

@@ -12,7 +12,11 @@ public class scroll : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Vector2 offset = new Vector2(Time.time * speed, 0);
-		GetComponent<Renderer>().material.mainTextureOffset = offset;
+
+		if (!PlayerCrontroller.isDead) {
+			Vector2 offset = new Vector2(Time.time * speed, 0);
+			GetComponent<Renderer>().material.mainTextureOffset = offset;
+		}
+
 	}
 }

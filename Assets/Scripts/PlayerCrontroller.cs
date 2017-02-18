@@ -7,7 +7,7 @@ public class PlayerCrontroller : MonoBehaviour {
 	public Animator anim;
 
 	[Header("Animation")]
-	public bool isDead = false;
+	public static bool isDead = false;
 
 	void Start() {
 		anim = GetComponent<Animator> ();

@@ -12,11 +12,6 @@ public class EnemyScene : MonoBehaviour {
 
 	public Text text;
 
-	void Start() {
-		text = FindObjectOfType (Text);
-	}
-
-
 	void Update() {
 		//Get the enemy the current position
 		Vector2 position = transform.position;
@@ -30,13 +25,9 @@ public class EnemyScene : MonoBehaviour {
 		Vector2 min = Camera.main.ViewportToWorldPoint (new Vector2 (0, 0));
 
 		if (transform.position.x < min.x) {
-
-			Manager.score++;
-			Debug.Log("Score: " + Manager.score);
-
-
-			FindObjectOfType(Text)
-
+			if (!PlayerCrontroller.isDead) {
+				UpdateHUD.score++;
+			}
 			Destroy (gameObject);
 		}
 	}

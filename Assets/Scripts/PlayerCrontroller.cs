@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerCrontroller : MonoBehaviour {
 
@@ -15,8 +16,7 @@ public class PlayerCrontroller : MonoBehaviour {
 
 	void Update ()
 	{
-		Debug.Log ("isDead => " + isDead);
-		if (Input.GetKeyDown(KeyCode.UpArrow))
+		if (Input.GetKeyDown(KeyCode.UpArrow) && !isDead)
 		{
 			Vector3 position = this.transform.position;
 			position.y++;
@@ -26,7 +26,7 @@ public class PlayerCrontroller : MonoBehaviour {
 			}
 
 		}
-		if (Input.GetKeyDown(KeyCode.DownArrow))
+		if (Input.GetKeyDown(KeyCode.DownArrow) && !isDead)
 		{
 			Vector3 position = this.transform.position;
 			position.y--;
